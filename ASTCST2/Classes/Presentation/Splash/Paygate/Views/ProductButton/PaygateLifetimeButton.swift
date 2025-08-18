@@ -24,7 +24,7 @@ final class PaygateLifetimeButton: PaygateProductButton {
     
     private lazy var periodPriceAttrs = TextAttributes()
         .textColor(Appearance.mono200)
-        .font(Fonts.Inter.semiBold(size: 18.scale))
+        .font(Fonts.Inter.semiBold(size: 20.scale))
         .lineHeight(29.scale)
         .letterSpacing(-0.44.scale)
         .textAlignment(.left)
@@ -40,12 +40,6 @@ final class PaygateLifetimeButton: PaygateProductButton {
         .lineHeight(18.scale)
         .textAlignment(.center)
         .letterSpacing(-0.08.scale)
-    private lazy var oncePriceAttrs = TextAttributes()
-        .textColor(Appearance.mono200)
-        .font(Fonts.Inter.semiBold(size: 20.scale))
-        .lineHeight(29.scale)
-        .letterSpacing(-0.44.scale)
-        .textAlignment(.left)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -76,7 +70,7 @@ extension PaygateLifetimeButton {
         
         let oncePrice: NSAttributedString = {
             let result = NSMutableAttributedString()
-            result.append((product.oncePrice + "/").attributed(with: oncePriceAttrs))
+            result.append((product.oncePrice + "/").attributed(with: periodPriceAttrs))
             result.append("Paygate.Lifetime.Once".localized.attributed(with: periodAttrs))
             return result
         }()
